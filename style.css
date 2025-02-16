@@ -7,14 +7,22 @@ body {
 }
 
 .navbar {
-    background: transparent;
-    padding: 20px 60px;
+  background: transparent;
+  padding: 20px 60px;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays above other elements */
 }
 
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
+/* Change background on scroll */
+.navbar.scrolled {
+  background: rgba(152, 223, 233, 0.8);
+  padding: 10px 60px;
 }
+
 
 .hero-section {
     text-align: center;
@@ -113,7 +121,7 @@ body {
  #services h2{
   padding: 60px 0;
   /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
-  color: #1F2B6C;
+  color: #007bff;
 }
 /* Card styling */
 .service-card {
@@ -158,16 +166,12 @@ body {
 /* Medical Departments Section */
 #medical-departments {
   position: relative;
-  /* background: linear-gradient(135deg, #0C756F, #FDCF6F);
-  color: #EFEADB; 
-  padding: 60px 0;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); */
   background-color: #EAF6FF;
     backdrop-filter: blur(15px); 
     border-radius: 25px; 
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 80px;
 }
 
 /* Department Card */
@@ -206,11 +210,11 @@ body {
 .right-content h4 {
   font-weight: bold;
   margin-bottom: 15px;
-  color: #EFEADB;
+  color: #0C756F;
 }
 .right-content p {
   line-height: 1.6;
-  color: #EFEADB;
+  color: #0C756F;
 }
 
 /* Our Gallery Section */
@@ -218,10 +222,6 @@ body {
   margin-top: 45px;
   margin-bottom: 45px;
   position: relative;
-  /* background: linear-gradient(200deg, #FDCF6F, #0C756F);
-  color: #EFEADB;
-  padding: 60px 0;
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); */
   overflow: hidden;
 
   background-color: #EAF6FF;
@@ -229,7 +229,7 @@ body {
     border-radius: 25px; 
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 80px;
 
 }
 
@@ -237,7 +237,7 @@ body {
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  color: #EFEADB;
+  color: #007bff;
 }
 
 /* Container for both sets of gallery images */
@@ -296,13 +296,14 @@ body {
   .col-md-12 .gallery-img {
     height: auto;
   }
+  #medical-departments, #our-gallery{
+    padding: 20px;
+  }
 }
 
 
    /* Main background with dark teal */
    #symptom-checker {
-    background-color: #0C756F;
-    /* border-radius: 20px; */
     margin-top: 20px;
     background-color: #EAF6FF;
     backdrop-filter: blur(15px); 
@@ -310,12 +311,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    
   }
+
 
   /* Glassmorphism Card */
   .glass-card {
-    background: #0C756F;
+    background: rgba(239, 234, 219, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(239, 234, 219, 0.3);
@@ -328,7 +329,7 @@ body {
   .glass-card p,
   .glass-card .form-check-label,
   h2 {
-    color: #EFEADB; /* Light Cream */
+    color: #0C756F; /* Light Cream */
   }
 
   /* Checkboxes */
@@ -352,7 +353,7 @@ body {
 
   /* Symptom Result Text */
   #symptomResult {
-    color: #EFEADB;
+    color: #0C756F;
     font-weight: bold;
     text-align: center;
     margin-top: 1rem;
@@ -393,13 +394,13 @@ body {
   /* Quiz Section Body */
   .quiz-section {
     padding: 20px;
-    color: #000201;
+    color: #0C756F;
   }
   
   /* Pricing Section Body */
   .pricing-section {
     padding: 20px;
-    color: #000201;
+    color: #0C756F;
   }
   
   /* Option Label Styling */
@@ -455,9 +456,6 @@ body {
 
   /* Section Background using theme colors in a gradient */
   #virtual-tour {
-    /* padding: 60px 0;
-    background: linear-gradient(135deg, #0C756F, #FDCF6F);
-    color: #EFEADB; */
     background-color: #EAF6FF;
     backdrop-filter: blur(15px); 
     border-radius: 25px; 
@@ -507,7 +505,7 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-weight: bold;
-    color: #1F2B6C;
+    color: #007bff;
   }
 
   /* Doctor Card 3D Effect */
@@ -650,18 +648,7 @@ body {
   #recent-projects .project-card:hover .project-overlay {
     opacity: 1;
   }
-    /* Live Chat Button */
-    .chat-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    
 
     #contact {
       padding: 80px 0;
@@ -739,9 +726,10 @@ body {
   }
 
   .btn-appointment:hover {
-      background: linear-gradient(135deg, #0056b3, #0094ff);
+      background: linear-gradient(135deg, #0056b3, #0094ff) !important;
       transform: translateY(-2px);
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      color: #000201;
   }
 
   .date-picker {
@@ -779,7 +767,7 @@ body {
   color: white;
   padding: 50px 0;
   border-top-left-radius: 20px;
-  border-top-right-radius: 50px;
+  border-top-right-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -839,7 +827,19 @@ body {
 @media (max-width: 768px) {
   .footer {
       border-top-left-radius: 20px;
-      border-top-right-radius: 50px;
+      border-top-right-radius: 20px;
       text-align: center;
   }
+}
+/* Live Chat Button */
+.chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

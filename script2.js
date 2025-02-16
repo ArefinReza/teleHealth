@@ -224,3 +224,11 @@ document.getElementById("chatbotBtn").addEventListener("click", function () {
     }, 4000); // 4-second interval, adjust as desired
   });
 
+  window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
