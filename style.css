@@ -1,0 +1,568 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.firstSection {
+    background: linear-gradient(to bottom, #EAF6FF, #FFFFFF);
+}
+
+.navbar {
+    background: transparent;
+    padding: 20px 60px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #1F2B6C;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 70%;
+    margin: auto;
+    padding: 9px;
+    border-radius: 60px;
+    background: linear-gradient(90deg, #d8e0eb, #7096ba, #2c6399);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+.search-bar input {
+    border-radius: 50px 0 0 50px;
+    padding: 12px;
+    width: 250px;
+    border: none;
+
+}
+
+.search-bar select {
+    border-radius: 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    border-radius: 0 50px 50px 0;
+    padding: 12px 20px;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.category {
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.consultation-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+.consultation-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+ /* Section Background using theme colors (#0C756F, #FDCF6F) in a gradient */
+ #services{
+  padding: 60px 0;
+  
+}
+ #services h2{
+  padding: 60px 0;
+  /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
+  color: #1F2B6C;
+}
+/* Card styling */
+.service-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+/* Service image (background image in card header) */
+.service-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+/* Card body with semi-transparent cream background */
+.card-body {
+  background: rgba(239, 234, 219, 0.85);
+  padding: 20px;
+  text-align: center;
+}
+/* Icon styling */
+.service-icon {
+  margin-bottom: 15px;
+}
+.service-icon i {
+  font-size: 2.5rem;
+  color: #000201;
+}
+/* Card title and text */
+.card-title {
+  color: #0C756F;
+  margin-top: 10px;
+}
+.card-text {
+  color: #000201;
+}
+
+/* Medical Departments Section */
+#medical-departments {
+  position: relative;
+  /* Gradient from dark teal to warm yellow */
+  background: linear-gradient(135deg, #0C756F, #FDCF6F);
+  color: #EFEADB; /* Light cream text */
+  padding: 60px 0;
+  /* Wave shape at bottom */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+/* Department Card */
+.dept-card {
+  background: #EFEADB; /* Light cream card background */
+  border: none;
+  border-radius: 6px;
+  color: #000201; /* Near-black text for high contrast */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+.dept-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.dept-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.dept-card .card-body {
+  padding: 15px;
+}
+.dept-card .card-body h5 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.dept-card .card-body p {
+  font-size: 0.95rem;
+  /* Using dark teal for secondary text for a subtle contrast */
+  color: #0C756F;
+}
+
+/* Right-side Content (e.g., Modern Equipment area) */
+.right-content h4 {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #EFEADB;
+}
+.right-content p {
+  line-height: 1.6;
+  color: #EFEADB;
+}
+
+/* Our Gallery Section */
+#our-gallery {
+  position: relative;
+  /* Gradient background matching the departments section */
+  /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
+  background: linear-gradient(200deg, #FDCF6F, #0C756F);
+  color: #EFEADB;
+  padding: 60px 0;
+  /* Reversed wave shape at top */
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+}
+
+#our-gallery h2 {
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #EFEADB;
+}
+
+/* Container for both sets of gallery images */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* Each set of 5 images */
+.gallery-set {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s ease;
+  opacity: 0;
+  z-index: 0;
+}
+.gallery-set.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Gallery Image Styling */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mosaic layout spacing */
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+/* Define heights for mosaic columns */
+.col-md-6 .gallery-img {
+  height: 200px;
+}
+.col-md-12 .gallery-img {
+  height: 180px;
+}
+
+/* Hover Effect for Gallery Images */
+.gallery-img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .col-md-6 .gallery-img,
+  .col-md-12 .gallery-img {
+    height: auto;
+  }
+  #medical-departments {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
+  }
+}
+
+
+   /* Main background with dark teal */
+   #symptom-checker {
+    background-color: #0C756F;
+    /* border-radius: 20px; */
+    margin-top: 20px;
+    
+  }
+
+  /* Glassmorphism Card */
+  .glass-card {
+    background: #0C756F;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(239, 234, 219, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Text Styling */
+  .glass-card p,
+  .glass-card .form-check-label,
+  h2 {
+    color: #EFEADB; /* Light Cream */
+  }
+
+  /* Checkboxes */
+  .form-check-input {
+    accent-color: #FDCF6F; /* Warm Yellow */
+  }
+
+  /* Styled Button */
+  .glass-card .btn-primary {
+    background-color: #FDCF6F;
+    border: none;
+    color: #000201;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .glass-card .btn-primary:hover {
+    background-color: #000201;
+    color: #FDCF6F;
+  }
+
+  /* Symptom Result Text */
+  #symptomResult {
+    color: #EFEADB;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Overall Section Styling with Gradient Background using theme colors */
+  #telehealth-assessment {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0C756F, #FDCF6F);
+    color: #EFEADB;
+  }
+  
+  /* Card Styling */
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: #EFEADB;
+  }
+  
+  /* Quiz Header Styling */
+  .quiz-header {
+    background: linear-gradient(135deg, #0C756F, #000201);
+    color: #EFEADB;
+    font-size: 1.25rem;
+    padding: 15px;
+  }
+  
+  /* Pricing Header Styling */
+  .pricing-header {
+    background: linear-gradient(135deg, #FDCF6F, #0C756F);
+    color: #000201;
+    font-size: 1.25rem;
+    padding: 15px;
+  }
+  
+  /* Quiz Section Body */
+  .quiz-section {
+    padding: 20px;
+    color: #000201;
+  }
+  
+  /* Pricing Section Body */
+  .pricing-section {
+    padding: 20px;
+    color: #000201;
+  }
+  
+  /* Option Label Styling */
+  .option-label {
+    display: block;
+    padding: 10px;
+    border: 1px solid #0C756F;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+  .option-label:hover {
+    background: #FDCF6F;
+    border-color: #FDCF6F;
+  }
+  .form-check-input:checked + .option-label {
+    background: #FDCF6F;
+    border-color: #FDCF6F;
+  }
+  
+  /* Custom Button Styles */
+  .btn-custom {
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  .btn-primary {
+    background-color: #0C756F;
+    border: none;
+  }
+  .btn-success {
+    background-color: #FDCF6F;
+    border: none;
+  }
+  .btn-secondary {
+    background-color: #000201;
+    border: none;
+  }
+  
+  /* Total Price Styling */
+  #totalPrice {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    #telehealth-assessment .row {
+      flex-direction: column;
+    }
+  }
+
+  /* Section Background using theme colors in a gradient */
+  #virtual-tour {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #0C756F, #FDCF6F);
+    color: #EFEADB;
+  }
+
+  /* 3D Container */
+  .virtual-tour-container {
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 3D Card Effect for the Tour Wrapper */
+  .virtual-tour-wrapper {
+    transform: rotateY(0deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  /* On Hover, rotate the card slightly */
+  .virtual-tour-container:hover .virtual-tour-wrapper {
+    transform: rotateY(10deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Ensure the iframe fills the wrapper */
+  .virtual-tour-wrapper iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Section Background with Gradient using theme colors */
+  #specialised-doctors {
+    position: relative;
+    /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
+    color: #EFEADB;
+    padding: 60px 0;
+  }
+  #specialised-doctors h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #1F2B6C;
+  }
+
+  /* Doctor Card 3D Effect */
+  .doctor-card {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+  }
+  .doctor-card:hover {
+    transform: perspective(1000px) rotateY(10deg) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Icon Overlay on the Card */
+  .icon-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
+    color: #EFEADB;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .doctor-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .doctor-card .card-body {
+    text-align: center;
+    padding: 15px;
+  }
+  .doctor-card .card-title {
+    font-weight: bold;
+    color: #000201;
+    margin-bottom: 5px;
+  }
+  .doctor-card .card-text {
+    color: #0C756F;
+    font-size: 0.95rem;
+  }
+
+  /* Modal Styling */
+  .modal-header {
+    background: #0C756F;
+    color: #EFEADB;
+  }
+  .modal-footer {
+    background: #FDCF6F;
+  }
+
+  
+
+    /* Live Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
