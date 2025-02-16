@@ -836,31 +836,45 @@
 
 
     <!-- Contact / Appointment Form Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4">Book an Appointment</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <form id="appointmentForm" class="shadow p-4 rounded bg-white">
-                        <div class="mb-3">
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required />
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required />
-                        </div>
-                        <div class="mb-3">
+    <!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4">Book an Appointment</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="appointmentForm" class="appointment-form">
+                    
+                    <!-- Name Input -->
+                    <div class="floating-label">
+                        <input type="text" id="name" class="form-control" placeholder=" " required />
+                        <label for="name">Your Name</label>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="floating-label">
+                        <input type="email" id="email" class="form-control" placeholder=" " required />
+                        <label for="email">Your Email</label>
+                    </div>
+
+                    <!-- Date Picker -->
+                    <div class="floating-label">
+                        <div class="date-picker">
+                            <i class="fas fa-calendar-alt"></i>
                             <input type="datetime-local" id="appointmentDate" class="form-control" required />
                         </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-appointment">
+                            <i class="fas fa-paper-plane"></i> Submit
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Live Chat Button -->
     <button id="chatbotBtn" class="btn btn-success rounded-circle shadow chat-btn">
@@ -868,40 +882,51 @@
     </button>
 
     <!-- Beautiful Footer -->
-    <footer class="footer bg-dark text-white py-4">
+    <footer class="footer">
         <div class="container">
             <div class="row">
+                <!-- Branding & About -->
                 <div class="col-md-4 mb-3">
                     <h5>TeleHealth</h5>
-                    <p>
-                        Your trusted partner in online healthcare services. Connecting you with the best medical
-                        professionals.
-                    </p>
+                    <p>Your trusted partner in online healthcare. Connecting you with top medical professionals.</p>
                 </div>
+    
+                <!-- Quick Links -->
                 <div class="col-md-4 mb-3">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#hero" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
-                        <li><a href="#gallery" class="text-white text-decoration-none">Gallery</a></li>
-                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#blog">Blog</a></li>
                     </ul>
                 </div>
+    
+                <!-- Healthcare Links -->
                 <div class="col-md-4 mb-3">
-                    <h5>Follow Us</h5>
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="#" class="text-white text-decoration-none"><i class="bi bi-facebook"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="text-white text-decoration-none"><i class="bi bi-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#" class="text-white text-decoration-none"><i class="bi bi-instagram"></i></a>
-                        </li>
+                    <h5>Healthcare Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Online Consultation</a></li>
+                        <li><a href="#">Virtual Diagnosis</a></li>
+                        <li><a href="#">Telemedicine</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Emergency Support</a></li>
                     </ul>
                 </div>
             </div>
+    
+            <!-- Social Links -->
+            <div class="text-center social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+    
+            <!-- Copyright -->
             <div class="text-center mt-3">
                 <small>&copy; 2025 TeleHealth. All rights reserved.</small>
             </div>

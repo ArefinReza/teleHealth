@@ -223,3 +223,4 @@ document.getElementById("chatbotBtn").addEventListener("click", function () {
       sets[currentIndex].classList.add('active');
     }, 4000); // 4-second interval, adjust as desired
   });
+

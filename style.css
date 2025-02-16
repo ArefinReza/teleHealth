@@ -158,12 +158,16 @@ body {
 /* Medical Departments Section */
 #medical-departments {
   position: relative;
-  /* Gradient from dark teal to warm yellow */
-  background: linear-gradient(135deg, #0C756F, #FDCF6F);
-  color: #EFEADB; /* Light cream text */
+  /* background: linear-gradient(135deg, #0C756F, #FDCF6F);
+  color: #EFEADB; 
   padding: 60px 0;
-  /* Wave shape at bottom */
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); */
+  background-color: #EAF6FF;
+    backdrop-filter: blur(15px); 
+    border-radius: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 /* Department Card */
@@ -211,15 +215,22 @@ body {
 
 /* Our Gallery Section */
 #our-gallery {
+  margin-top: 45px;
+  margin-bottom: 45px;
   position: relative;
-  /* Gradient background matching the departments section */
-  /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
-  background: linear-gradient(200deg, #FDCF6F, #0C756F);
+  /* background: linear-gradient(200deg, #FDCF6F, #0C756F);
   color: #EFEADB;
   padding: 60px 0;
-  /* Reversed wave shape at top */
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); */
   overflow: hidden;
+
+  background-color: #EAF6FF;
+    backdrop-filter: blur(15px); 
+    border-radius: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+
 }
 
 #our-gallery h2 {
@@ -285,9 +296,6 @@ body {
   .col-md-12 .gallery-img {
     height: auto;
   }
-  #medical-departments {
-    clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
-  }
 }
 
 
@@ -296,6 +304,12 @@ body {
     background-color: #0C756F;
     /* border-radius: 20px; */
     margin-top: 20px;
+    background-color: #EAF6FF;
+    backdrop-filter: blur(15px); 
+    border-radius: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     
   }
 
@@ -441,9 +455,15 @@ body {
 
   /* Section Background using theme colors in a gradient */
   #virtual-tour {
-    padding: 60px 0;
+    /* padding: 60px 0;
     background: linear-gradient(135deg, #0C756F, #FDCF6F);
-    color: #EFEADB;
+    color: #EFEADB; */
+    background-color: #EAF6FF;
+    backdrop-filter: blur(15px); 
+    border-radius: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
   }
 
   /* 3D Container */
@@ -553,7 +573,83 @@ body {
   }
 
   
+  /*tele health goal */
+  #telehealth-goal {
+    background-color: #EAF6FF;
+    backdrop-filter: blur(15px); 
+    border-radius: 25px; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
 
+  #telehealth-goal .icon-item {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  #telehealth-goal .icon-item:hover,
+  #telehealth-goal .icon-item.active {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+  }
+  #telehealth-goal i, h2 {
+    color: #007bff;
+  }
+  #telehealth-goal .icon-item.active i {
+    color: #0056b3;
+  }
+
+   /* Trending Products Section */
+   #trending-products .product-img-container {
+    position: relative;
+    overflow: hidden;
+  }
+  #trending-products .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  #trending-products .product-img-container:hover .product-overlay {
+    opacity: 1;
+  }
+  #trending-products .product-card {
+    transition: transform 0.3s ease;
+  }
+  #trending-products .product-card:hover {
+    transform: scale(1.03);
+  }
+
+  /* Recent Projects Section */
+  #recent-projects .project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #recent-projects .project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  #recent-projects .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  #recent-projects .project-card:hover .project-overlay {
+    opacity: 1;
+  }
     /* Live Chat Button */
     .chat-btn {
       position: fixed;
@@ -566,3 +662,184 @@ body {
       justify-content: center;
       align-items: center;
     }
+
+    #contact {
+      padding: 80px 0;
+  }
+
+  .appointment-form {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+  }
+
+  .appointment-form:hover {
+      transform: scale(1.02);
+  }
+
+  .floating-label {
+      position: relative;
+      margin-bottom: 20px;
+  }
+
+  .floating-label input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      transition: all 0.3s ease;
+      font-size: 16px;
+  }
+
+  .floating-label input:focus,
+.date-picker input:focus,
+.btn-appointment:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none;
+}
+
+  .floating-label input:focus {
+      /* border-color: #007bff; */
+      background: white;
+  }
+
+  .floating-label label {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #555;
+      transition: all 0.3s ease;
+      pointer-events: none;
+  }
+
+  .floating-label input:focus + label,
+  .floating-label input:not(:placeholder-shown) + label {
+      top: 5px;
+      font-size: 12px;
+      color: #007bff;
+  }
+
+  .btn-appointment {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      border: none;
+  }
+
+  .btn-appointment:hover {
+      background: linear-gradient(135deg, #0056b3, #0094ff);
+      transform: translateY(-2px);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .date-picker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 10px;
+      border-radius: 10px;
+  }
+
+  .date-picker input {
+      border: none;
+      background: transparent;
+      width: 100%;
+      font-size: 16px;
+  }
+
+  .date-picker i {
+      color: #007bff;
+      font-size: 20px;
+      margin-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+      .appointment-form {
+          padding: 25px;
+      }
+  }
+
+  /* Curved Top Border & Glassmorphism Background */
+.footer {
+  position: relative;
+  background: rgba(0, 150, 136, 0.9);
+  color: white;
+  padding: 50px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Layout */
+.footer .row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Footer Headings */
+.footer h5 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Footer Links */
+.footer ul {
+  padding: 0;
+}
+
+.footer ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer ul li a:hover {
+  color: #ffeb3b;
+  text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffeb3b;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 50px;
+      text-align: center;
+  }
+}
