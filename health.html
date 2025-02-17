@@ -33,11 +33,20 @@
                         <li class="nav-item"><a class="nav-link" href="#">Find Doctors</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Find Medical</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-                        <li class="nav-item"><a class="btn btn-primary" href="#">Sign In</a></li>
+                        <!-- Dark mode button should not be inside the <a> tag -->
+                        <li class="nav-item mx-3">
+                            <a id="dark-mode-toggle" class="btn btn-secondary">
+                                <i class="fas fa-moon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="#">Sign In</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        
 
         <!-- Hero Section -->
         <section class="hero-section">

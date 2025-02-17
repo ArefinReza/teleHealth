@@ -1,185 +1,203 @@
+/* =============================================================================
+   VARIABLES & GLOBAL SETTINGS
+   ============================================================================= */
+:root {
+  /* Fonts */
+  --font-family: 'Poppins', sans-serif;
+
+  /* Colors */
+  --primary-color: #0C756F;       /* Dark teal */
+  --secondary-color: #FDCF6F;     /* Warm yellow */
+  --accent-color: #007bff;        /* Accent blue */
+  --dark-color: #000201;          /* Near-black */
+  --light-blue: #EAF6FF;          /* Light blue background */
+  --white: #FFFFFF;
+  --cream-bg: rgba(239, 234, 219, 0.85); /* Semi-transparent cream */
+  --navbar-scroll-bg: rgba(152, 223, 233, 0.8);
+  --transparent: transparent;
+
+  /* Gradients & Animation */
+  --gradient-search: linear-gradient(90deg, #d8e0eb, #7096ba, #2c6399);
+  --gradient-animation-duration: 5s;
+  --gradient-animation-timing: ease infinite;
+
+  /* Spacing & Borders */
+  --border-radius-default: 10px;
+  --transition-speed: 0.3s;
+
+  /* Effects */
+  --blur-bg: blur(15px);
+}
+
+/* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family);
 }
 
+/* =============================================================================
+   SECTIONS & COMPONENTS
+   ============================================================================= */
+
+/* First Section Background */
 .firstSection {
-    background: linear-gradient(to bottom, #EAF6FF, #FFFFFF);
+  background: linear-gradient(to bottom, var(--light-blue), var(--white));
 }
 
+/* Navbar */
 .navbar {
-  background: transparent;
+  background: var(--transparent);
   padding: 20px 60px;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--transition-speed) ease-in-out;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensures it stays above other elements */
+  z-index: 1000; /* Stays above other elements */
 }
-
-/* Change background on scroll */
 .navbar.scrolled {
-  background: rgba(152, 223, 233, 0.8);
+  background: var(--navbar-scroll-bg);
   padding: 10px 60px;
 }
 
-
+/* Hero Section */
 .hero-section {
-    text-align: center;
-    padding: 80px 20px;
+  text-align: center;
+  padding: 80px 20px;
 }
-
 .hero-title {
-    font-size: 40px;
-    font-weight: bold;
-    color: #1F2B6C;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
+/* Gradient Animation for the Search Bar */
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Search Bar */
 .search-bar {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    max-width: 70%;
-    margin: auto;
-    padding: 9px;
-    border-radius: 60px;
-    background: linear-gradient(90deg, #d8e0eb, #7096ba, #2c6399);
-    background-size: 200% 200%;
-    animation: gradientAnimation 5s ease infinite;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 0;
+  max-width: 70%;
+  padding: 9px;
+  border-radius: 60px;
+  background: var(--gradient-search);
+  background-size: 200% 200%;
+  animation: gradientAnimation var(--gradient-animation-duration) ease infinite;
 }
-
 .search-bar input {
-    border-radius: 50px 0 0 50px;
-    padding: 12px;
-    width: 250px;
-    border: none;
-
+  border: none;
+  border-radius: 50px 0 0 50px;
+  padding: 12px;
+  width: 250px;
 }
-
 .search-bar select {
-    border-radius: 0;
-    padding: 12px;
-    border: 1px solid #ccc;
+  border: 1px solid #ccc;
+  padding: 12px;
 }
-
 .search-bar button {
-    border-radius: 0 50px 50px 0;
-    padding: 12px 20px;
-    background-color: #0066ff;
-    color: white;
-    border: none;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  padding: 12px 20px;
+  background-color: #0066ff;
+  color: var(--white);
 }
 
+/* Categories */
 .categories {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
-
 .category {
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
+/* Consultation Card */
 .consultation-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
-    margin: auto;
-    position: relative;
-    text-align: center;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  text-align: center;
 }
-
 .consultation-card img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  border-radius: 12px;
 }
 
- /* Section Background using theme colors (#0C756F, #FDCF6F) in a gradient */
- #services{
+/* =============================================================================
+   SERVICES & DEPARTMENTS
+   ============================================================================= */
+
+/* Services Section */
+#services {
   padding: 60px 0;
-  
 }
- #services h2{
+#services h2 {
   padding: 60px 0;
-  /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
-  color: #007bff;
+  color: var(--accent-color);
 }
-/* Card styling */
 .service-card {
   border: none;
-  border-radius: 10px;
+  border-radius: var(--border-radius-default);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-/* Service image (background image in card header) */
 .service-img {
   height: 200px;
   background-size: cover;
   background-position: center;
 }
-/* Card body with semi-transparent cream background */
 .card-body {
-  background: rgba(239, 234, 219, 0.85);
+  background: var(--cream-bg);
   padding: 20px;
   text-align: center;
 }
-/* Icon styling */
 .service-icon {
   margin-bottom: 15px;
 }
 .service-icon i {
   font-size: 2.5rem;
-  color: #000201;
+  color: var(--dark-color);
 }
-/* Card title and text */
 .card-title {
-  color: #0C756F;
+  color: var(--primary-color);
   margin-top: 10px;
 }
 .card-text {
-  color: #000201;
+  color: var(--dark-color);
 }
 
 /* Medical Departments Section */
 #medical-departments {
   position: relative;
-  background-color: #EAF6FF;
-    backdrop-filter: blur(15px); 
-    border-radius: 25px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 80px;
+  background-color: var(--light-blue);
+  backdrop-filter: var(--blur-bg);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 80px;
 }
-
-/* Department Card */
 .dept-card {
-  background: #EFEADB; /* Light cream card background */
+  background: #EFEADB;
   border: none;
   border-radius: 6px;
-  color: #000201; /* Near-black text for high contrast */
+  color: var(--dark-color);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
@@ -202,53 +220,48 @@ body {
 }
 .dept-card .card-body p {
   font-size: 0.95rem;
-  /* Using dark teal for secondary text for a subtle contrast */
-  color: #0C756F;
+  color: var(--primary-color);
 }
 
 /* Right-side Content (e.g., Modern Equipment area) */
 .right-content h4 {
   font-weight: bold;
   margin-bottom: 15px;
-  color: #0C756F;
+  color: var(--primary-color);
 }
 .right-content p {
   line-height: 1.6;
-  color: #0C756F;
+  color: var(--primary-color);
 }
+
+/* =============================================================================
+   GALLERY SECTION
+   ============================================================================= */
 
 /* Our Gallery Section */
 #our-gallery {
-  margin-top: 45px;
-  margin-bottom: 45px;
+  margin: 45px 0;
   position: relative;
   overflow: hidden;
-
-  background-color: #EAF6FF;
-    backdrop-filter: blur(15px); 
-    border-radius: 25px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 80px;
-
+  background-color: var(--light-blue);
+  backdrop-filter: var(--blur-bg);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 80px;
 }
-
 #our-gallery h2 {
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  color: #007bff;
+  color: var(--accent-color);
 }
-
-/* Container for both sets of gallery images */
 .gallery-container {
   position: relative;
   width: 100%;
   min-height: 400px;
   overflow: hidden;
 }
-
-/* Each set of 5 images */
 .gallery-set {
   position: absolute;
   top: 0;
@@ -262,575 +275,514 @@ body {
   opacity: 1;
   z-index: 1;
 }
-
-/* Gallery Image Styling */
 .gallery-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: var(--border-radius-default);
 }
-
-/* Mosaic layout spacing */
 .p-2 {
   padding: 0.5rem !important;
 }
-
-/* Define heights for mosaic columns */
+/* Mosaic column image heights */
 .col-md-6 .gallery-img {
   height: 200px;
 }
 .col-md-12 .gallery-img {
   height: 180px;
 }
-
-/* Hover Effect for Gallery Images */
 .gallery-img:hover {
   transform: scale(1.03);
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-speed) ease;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Gallery */
 @media (max-width: 768px) {
   .col-md-6 .gallery-img,
   .col-md-12 .gallery-img {
     height: auto;
   }
-  #medical-departments, #our-gallery{
+  #medical-departments,
+  #our-gallery {
     padding: 20px;
   }
 }
 
+/* =============================================================================
+   SYMPTOM CHECKER & GLASSMORPHISM
+   ============================================================================= */
 
-   /* Main background with dark teal */
-   #symptom-checker {
-    margin-top: 20px;
-    background-color: #EAF6FF;
-    backdrop-filter: blur(15px); 
-    border-radius: 25px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-
-
-  /* Glassmorphism Card */
-  .glass-card {
-    background: rgba(239, 234, 219, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(239, 234, 219, 0.3);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Text Styling */
-  .glass-card p,
-  .glass-card .form-check-label,
-  h2 {
-    color: #0C756F; /* Light Cream */
-  }
-
-  /* Checkboxes */
-  .form-check-input {
-    accent-color: #FDCF6F; /* Warm Yellow */
-  }
-
-  /* Styled Button */
-  .glass-card .btn-primary {
-    background-color: #FDCF6F;
-    border: none;
-    color: #000201;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  .glass-card .btn-primary:hover {
-    background-color: #000201;
-    color: #FDCF6F;
-  }
-
-  /* Symptom Result Text */
-  #symptomResult {
-    color: #0C756F;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  /* Overall Section Styling with Gradient Background using theme colors */
-  #telehealth-assessment {
-    padding: 60px 0;
-    background: linear-gradient(135deg, #0C756F, #FDCF6F);
-    color: #EFEADB;
-  }
-  
-  /* Card Styling */
-  .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    overflow: hidden;
-    background: #EFEADB;
-  }
-  
-  /* Quiz Header Styling */
-  .quiz-header {
-    background: linear-gradient(135deg, #0C756F, #000201);
-    color: #EFEADB;
-    font-size: 1.25rem;
-    padding: 15px;
-  }
-  
-  /* Pricing Header Styling */
-  .pricing-header {
-    background: linear-gradient(135deg, #FDCF6F, #0C756F);
-    color: #000201;
-    font-size: 1.25rem;
-    padding: 15px;
-  }
-  
-  /* Quiz Section Body */
-  .quiz-section {
-    padding: 20px;
-    color: #0C756F;
-  }
-  
-  /* Pricing Section Body */
-  .pricing-section {
-    padding: 20px;
-    color: #0C756F;
-  }
-  
-  /* Option Label Styling */
-  .option-label {
-    display: block;
-    padding: 10px;
-    border: 1px solid #0C756F;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: background 0.3s, border-color 0.3s;
-    cursor: pointer;
-  }
-  .option-label:hover {
-    background: #FDCF6F;
-    border-color: #FDCF6F;
-  }
-  .form-check-input:checked + .option-label {
-    background: #FDCF6F;
-    border-color: #FDCF6F;
-  }
-  
-  /* Custom Button Styles */
-  .btn-custom {
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-weight: bold;
-  }
-  .btn-primary {
-    background-color: #0C756F;
-    border: none;
-  }
-  .btn-success {
-    background-color: #FDCF6F;
-    border: none;
-  }
-  .btn-secondary {
-    background-color: #000201;
-    border: none;
-  }
-  
-  /* Total Price Styling */
-  #totalPrice {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 992px) {
-    #telehealth-assessment .row {
-      flex-direction: column;
-    }
-  }
-
-  /* Section Background using theme colors in a gradient */
-  #virtual-tour {
-    background-color: #EAF6FF;
-    backdrop-filter: blur(15px); 
-    border-radius: 25px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-
-  /* 3D Container */
-  .virtual-tour-container {
-    perspective: 1200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* 3D Card Effect for the Tour Wrapper */
-  .virtual-tour-wrapper {
-    transform: rotateY(0deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  /* On Hover, rotate the card slightly */
-  .virtual-tour-container:hover .virtual-tour-wrapper {
-    transform: rotateY(10deg);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Ensure the iframe fills the wrapper */
-  .virtual-tour-wrapper iframe {
-    border: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Section Background with Gradient using theme colors */
-  #specialised-doctors {
-    position: relative;
-    /* background: linear-gradient(135deg, #0C756F, #FDCF6F); */
-    color: #EFEADB;
-    padding: 60px 0;
-  }
-  #specialised-doctors h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-    color: #007bff;
-  }
-
-  /* Doctor Card 3D Effect */
-  .doctor-card {
-    background: #fff;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    transform: perspective(1000px) rotateY(0deg);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    position: relative;
-  }
-  .doctor-card:hover {
-    transform: perspective(1000px) rotateY(10deg) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Icon Overlay on the Card */
-  .icon-overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.6);
-    color: #EFEADB;
-    padding: 8px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .doctor-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  .doctor-card .card-body {
-    text-align: center;
-    padding: 15px;
-  }
-  .doctor-card .card-title {
-    font-weight: bold;
-    color: #000201;
-    margin-bottom: 5px;
-  }
-  .doctor-card .card-text {
-    color: #0C756F;
-    font-size: 0.95rem;
-  }
-
-  /* Modal Styling */
-  .modal-header {
-    background: #0C756F;
-    color: #EFEADB;
-  }
-  .modal-footer {
-    background: #FDCF6F;
-  }
-
-  
-  /*tele health goal */
-  #telehealth-goal {
-    background-color: #EAF6FF;
-    backdrop-filter: blur(15px); 
-    border-radius: 25px; 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+/* Symptom Checker Section */
+#symptom-checker {
+  margin-top: 20px;
+  background-color: var(--light-blue);
+  backdrop-filter: var(--blur-bg);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-  #telehealth-goal .icon-item {
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  #telehealth-goal .icon-item:hover,
-  #telehealth-goal .icon-item.active {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
-  }
-  #telehealth-goal i, h2 {
-    color: #007bff;
-  }
-  #telehealth-goal .icon-item.active i {
-    color: #0056b3;
-  }
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--cream-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 234, 219, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.glass-card p,
+.glass-card .form-check-label,
+h2 {
+  color: var(--primary-color);
+}
+.form-check-input {
+  accent-color: var(--secondary-color);
+}
+.glass-card .btn-primary {
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--dark-color);
+  font-weight: bold;
+  transition: var(--transition-speed);
+}
+.glass-card .btn-primary:hover {
+  background-color: var(--dark-color);
+  color: var(--secondary-color);
+}
+#symptomResult {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
 
-   /* Trending Products Section */
-   #trending-products .product-img-container {
-    position: relative;
-    overflow: hidden;
-  }
-  #trending-products .product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  #trending-products .product-img-container:hover .product-overlay {
-    opacity: 1;
-  }
-  #trending-products .product-card {
-    transition: transform 0.3s ease;
-  }
-  #trending-products .product-card:hover {
-    transform: scale(1.03);
-  }
+/* =============================================================================
+   TELEHEALTH ASSESSMENT & VIRTUAL TOUR
+   ============================================================================= */
 
-  /* Recent Projects Section */
-  #recent-projects .project-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  #recent-projects .project-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  #recent-projects .project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  #recent-projects .project-card:hover .project-overlay {
-    opacity: 1;
-  }
-    
+/* Telehealth Assessment Section */
+#telehealth-assessment {
+  padding: 60px 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--cream-bg);
+}
+.card {
+  border: none;
+  border-radius: var(--border-radius-default);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: var(--cream-bg);
+}
+.quiz-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+  color: var(--cream-bg);
+  font-size: 1.25rem;
+  padding: 15px;
+}
+.pricing-header {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: var(--dark-color);
+  font-size: 1.25rem;
+  padding: 15px;
+}
+.quiz-section,
+.pricing-section {
+  padding: 20px;
+  color: var(--primary-color);
+}
+.option-label {
+  display: block;
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background var(--transition-speed), border-color var(--transition-speed);
+  cursor: pointer;
+}
+.option-label:hover {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.form-check-input:checked + .option-label {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.btn-custom {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+}
+.btn-success {
+  background-color: var(--secondary-color);
+  border: none;
+}
+.btn-secondary {
+  background-color: var(--dark-color);
+  border: none;
+}
+#totalPrice {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
-    #contact {
-      padding: 80px 0;
-  }
+/* Virtual Tour Section */
+#virtual-tour {
+  background-color: var(--light-blue);
+  backdrop-filter: var(--blur-bg);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.virtual-tour-container {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.virtual-tour-wrapper {
+  transform: rotateY(0deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.virtual-tour-container:hover .virtual-tour-wrapper {
+  transform: rotateY(10deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+.virtual-tour-wrapper iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
 
-  .appointment-form {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out;
-  }
+/* =============================================================================
+   SPECIALISED DOCTORS & MODALS
+   ============================================================================= */
 
-  .appointment-form:hover {
-      transform: scale(1.02);
-  }
+/* Specialised Doctors Section */
+#specialised-doctors {
+  position: relative;
+  padding: 60px 0;
+  color: var(--cream-bg);
+}
+#specialised-doctors h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+.doctor-card {
+  background: var(--white);
+  border: none;
+  border-radius: var(--border-radius-default);
+  overflow: hidden;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+}
+.doctor-card:hover {
+  transform: perspective(1000px) rotateY(10deg) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.icon-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--cream-bg);
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.doctor-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.doctor-card .card-body {
+  text-align: center;
+  padding: 15px;
+}
+.doctor-card .card-title {
+  font-weight: bold;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+.doctor-card .card-text {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
 
-  .floating-label {
-      position: relative;
-      margin-bottom: 20px;
-  }
+/* Modal Styling */
+.modal-header {
+  background: var(--primary-color);
+  color: var(--cream-bg);
+}
+.modal-footer {
+  background: var(--secondary-color);
+}
 
-  .floating-label input {
-      width: 100%;
-      padding: 12px 15px;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.6);
-      transition: all 0.3s ease;
-      font-size: 16px;
-  }
+/* =============================================================================
+   TELEHEALTH GOAL
+   ============================================================================= */
+#telehealth-goal {
+  background-color: var(--light-blue);
+  backdrop-filter: var(--blur-bg);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+#telehealth-goal .icon-item {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
+}
+#telehealth-goal .icon-item:hover,
+#telehealth-goal .icon-item.active {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+#telehealth-goal i,
+#telehealth-goal h2 {
+  color: var(--accent-color);
+}
+#telehealth-goal .icon-item.active i {
+  color: #0056b3;
+}
 
-  .floating-label input:focus,
+/* =============================================================================
+   TRENDING PRODUCTS & RECENT PROJECTS
+   ============================================================================= */
+
+/* Trending Products Section */
+#trending-products .product-img-container {
+  position: relative;
+  overflow: hidden;
+}
+#trending-products .product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+#trending-products .product-img-container:hover .product-overlay {
+  opacity: 1;
+}
+#trending-products .product-card {
+  transition: transform var(--transition-speed) ease;
+}
+#trending-products .product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Recent Projects Section */
+#recent-projects .project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-default);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+#recent-projects .project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+#recent-projects .project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+}
+#recent-projects .project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* =============================================================================
+   CONTACT & APPOINTMENT FORM
+   ============================================================================= */
+
+/* Contact Section */
+#contact {
+  padding: 80px 0;
+}
+
+/* Appointment Form */
+.appointment-form {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed) ease-in-out;
+}
+.appointment-form:hover {
+  transform: scale(1.02);
+}
+.floating-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+.floating-label input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-default);
+  background: rgba(255, 255, 255, 0.6);
+  transition: all var(--transition-speed) ease;
+  font-size: 16px;
+}
+.floating-label input:focus,
 .date-picker input:focus,
 .btn-appointment:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    border: none;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+}
+.floating-label input:focus {
+  background: var(--white);
+}
+.floating-label label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #555;
+  transition: all var(--transition-speed) ease;
+  pointer-events: none;
+}
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: 5px;
+  font-size: 12px;
+  color: var(--accent-color);
+}
+.btn-appointment {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--border-radius-default);
+  font-size: 18px;
+  font-weight: bold;
+  transition: all var(--transition-speed) ease;
+  background: linear-gradient(135deg, var(--accent-color), #00c6ff);
+  color: var(--white);
+  border: none;
+}
+.btn-appointment:hover {
+  background: linear-gradient(135deg, #0056b3, #0094ff) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: var(--dark-color);
+}
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: var(--border-radius-default);
+}
+.date-picker input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 16px;
+}
+.date-picker i {
+  color: var(--accent-color);
+  font-size: 20px;
+  margin-right: 10px;
+}
+@media (max-width: 768px) {
+  .appointment-form {
+    padding: 25px;
+  }
 }
 
-  .floating-label input:focus {
-      /* border-color: #007bff; */
-      background: white;
-  }
+/* =============================================================================
+   FOOTER & LIVE CHAT
+   ============================================================================= */
 
-  .floating-label label {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: #555;
-      transition: all 0.3s ease;
-      pointer-events: none;
-  }
-
-  .floating-label input:focus + label,
-  .floating-label input:not(:placeholder-shown) + label {
-      top: 5px;
-      font-size: 12px;
-      color: #007bff;
-  }
-
-  .btn-appointment {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
-      border: none;
-  }
-
-  .btn-appointment:hover {
-      background: linear-gradient(135deg, #0056b3, #0094ff) !important;
-      transform: translateY(-2px);
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-      color: #000201;
-  }
-
-  .date-picker {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.6);
-      padding: 10px;
-      border-radius: 10px;
-  }
-
-  .date-picker input {
-      border: none;
-      background: transparent;
-      width: 100%;
-      font-size: 16px;
-  }
-
-  .date-picker i {
-      color: #007bff;
-      font-size: 20px;
-      margin-right: 10px;
-  }
-
-  @media (max-width: 768px) {
-      .appointment-form {
-          padding: 25px;
-      }
-  }
-
-  /* Curved Top Border & Glassmorphism Background */
+/* Footer */
 .footer {
   position: relative;
   background: rgba(0, 150, 136, 0.9);
-  color: white;
+  color: var(--white);
   padding: 50px 0;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
 }
-
-/* Responsive Layout */
 .footer .row {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-/* Footer Headings */
 .footer h5 {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
-/* Footer Links */
 .footer ul {
   padding: 0;
 }
-
 .footer ul li {
   list-style: none;
   margin-bottom: 8px;
 }
-
 .footer ul li a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
-  transition: 0.3s;
+  transition: var(--transition-speed);
 }
-
 .footer ul li a:hover {
   color: #ffeb3b;
   text-decoration: underline;
 }
-
-/* Social Media Icons */
 .social-icons {
   margin-top: 20px;
 }
-
 .social-icons a {
-  color: white;
+  color: var(--white);
   font-size: 24px;
   margin: 0 10px;
-  transition: 0.3s;
+  transition: var(--transition-speed);
 }
-
 .social-icons a:hover {
   color: #ffeb3b;
   transform: scale(1.2);
 }
-
-/* Responsive */
 @media (max-width: 768px) {
   .footer {
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      text-align: center;
+    text-align: center;
   }
 }
+
 /* Live Chat Button */
 .chat-btn {
   position: fixed;
@@ -844,3 +796,743 @@ body {
   align-items: center;
   z-index: 1;
 }
+/* =============================================================================
+   DARK MODE VARIABLES
+   ============================================================================= */
+   :root {
+    --dark-bg: #121212;
+    --dark-bg-secondary: #1e1e1e;
+    --dark-bg-tertiary: #222222;
+    --dark-text: #ffffff;
+    --dark-text-secondary: #bb86fc;
+    --dark-primary: #bb86fc;
+    --dark-primary-hover: #3700b3;
+    --dark-card-bg: #1e1e1e;
+    --dark-navbar-bg: rgba(18, 18, 18, 0.9);
+    --dark-footer-bg: rgba(18, 18, 18, 0.9);
+    --dark-input-bg: #222222;
+    --dark-input-border: #444444;
+    --dark-shadow: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* =============================================================================
+     DARK MODE GLOBAL STYLES
+     ============================================================================= */
+  body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  
+  /* =============================================================================
+     NAVBAR & HEADER
+     ============================================================================= */
+  .dark-mode .navbar {
+    /* When scrolled, use a background and shadow */
+    background: var(--dark-navbar-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Remove navbar background and shadow when NOT scrolling */
+  .dark-mode .navbar:not(.scrolled) {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  /* Navbar link and brand colors */
+  .dark-mode .navbar .nav-link,
+  .dark-mode .navbar .navbar-brand {
+    color: var(--dark-text);
+  }
+  
+  .dark-mode .navbar .nav-link:hover,
+  .dark-mode .navbar .navbar-brand:hover {
+    color: var(--dark-text-secondary);
+  }
+  
+  /* -------------------------------
+   Remove Navbar Background When NOT Scrolling
+-------------------------------- */
+.dark-mode .navbar:not(.scrolled) {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* -------------------------------
+   Fix Dark Mode Toggle Button Alignment
+-------------------------------- */
+/* Ensure the anchor wrapping the button is flex-aligned */
+.dark-mode .navbar .nav-item a {
+  display: flex;
+  align-items: center;
+}
+
+/* Style the dark mode toggle button for proper alignment */
+.dark-mode .navbar .nav-item a > button#dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.375rem 0.75rem; /* Optional: adjust padding as needed */
+}
+
+/* -------------------------------
+   Dark Mode Hamburger Icon (Navbar Toggler)
+-------------------------------- */
+.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+  
+  
+  .dark-mode .hero-title {
+    color: var(--dark-text-secondary);
+  }
+  
+  /* =============================================================================
+     SEARCH BAR & CATEGORIES
+     ============================================================================= */
+  .dark-mode .search-bar {
+    background: linear-gradient(90deg, #222222, #333333, #444444);
+    border-radius: 8px;
+  }
+  
+  .dark-mode .search-bar input,
+  .dark-mode .search-bar select,
+  .dark-mode .search-bar button {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-input-border);
+  }
+  
+  /* Fix search placeholder color */
+  .dark-mode .search-bar input::placeholder {
+    color: var(--dark-text);
+    opacity: 0.7;
+  }
+  
+  .dark-mode .search-bar button:hover {
+    background-color: var(--dark-primary);
+    color: var(--dark-bg);
+  }
+  
+  .dark-mode .category {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text);
+    border: 1px solid #333333;
+  }
+  
+  /* Example: Update firstSection for dark mode if needed */
+  .dark-mode .firstSection {
+    background: linear-gradient(to bottom, var(--dark-bg-tertiary));
+  }
+  
+  
+  /* =============================================================================
+     CARDS & SECTIONS
+     ============================================================================= */
+  
+  /* Consultation Card */
+  .dark-mode .consultation-card {
+    background: var(--dark-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    color: var(--dark-text);
+  }
+  .dark-mode .consultation-card img {
+    opacity: 0.9;
+  }
+  
+  /* Services Section */
+  .dark-mode #services {
+    background: var(--dark-bg);
+  }
+  .dark-mode .service-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .dark-mode .service-card:hover {
+    box-shadow: 0 10px 20px var(--dark-shadow);
+  }
+  .dark-mode .service-img {
+    filter: brightness(0.8);
+  }
+  .dark-mode .card-body {
+    background: var(--dark-bg-secondary);
+  }
+  .dark-mode .card-text {
+    color: white;
+  }
+  
+  /* Medical Departments */
+  .dark-mode #medical-departments {
+    background-color: var(--dark-bg);
+    border: 1px solid #333333;
+  }
+  .dark-mode .dept-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+  }
+  .dark-mode .dept-card img {
+    filter: brightness(0.8);
+  }
+  
+  /* Gallery Section */
+  .dark-mode #our-gallery {
+    background-color: var(--dark-bg);
+    border: 1px solid #333333;
+  }
+  .dark-mode #our-gallery h2 {
+    color: var(--dark-text-secondary);
+  }
+  .dark-mode .gallery-img {
+    filter: brightness(0.9);
+  }
+  
+  /* Symptom Checker & Glass Card */
+  .dark-mode #symptom-checker {
+    background-color: var(--dark-bg-secondary);
+    border: 1px solid #333333;
+  }
+  .dark-mode .glass-card {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+  }
+  
+  /* Telehealth Assessment */
+  .dark-mode #telehealth-assessment {
+    background: linear-gradient(135deg, var(--dark-bg-secondary), var(--dark-bg-tertiary));
+    color: var(--dark-text);
+  }
+  .dark-mode .quiz-header,
+  .dark-mode .pricing-header {
+    background: var(--dark-bg-tertiary);
+    color: var(--dark-text-secondary);
+  }
+  .dark-mode .quiz-section,
+  .dark-mode .pricing-section {
+    color: var(--dark-text);
+  }
+  
+  /* Virtual Tour */
+  .dark-mode #virtual-tour {
+    background-color: var(--dark-bg);
+    border: 1px solid #333333;
+  }
+  .dark-mode .virtual-tour-wrapper {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Specialised Doctors */
+  .dark-mode #specialised-doctors {
+    background: var(--dark-bg);
+  }
+  .dark-mode .doctor-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  .dark-mode .doctor-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+  }
+  .dark-mode .doctor-card .card-title,
+  .dark-mode .doctor-card .card-text {
+    color: var(--dark-text-secondary);
+  }
+  
+  /* Modal Windows */
+  .dark-mode .modal-header {
+    background: var(--dark-navbar-bg);
+    color: var(--dark-text);
+  }
+  .dark-mode .modal-footer {
+    background: var(--dark-bg-tertiary);
+  }
+  
+  /* Telehealth Goal */
+  .dark-mode #telehealth-goal {
+    background-color: var(--dark-bg);
+    border: 1px solid #333333;
+  }
+  .dark-mode #telehealth-goal .icon-item {
+    background: var(--dark-bg-tertiary);
+    color: var(--dark-text);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .dark-mode #telehealth-goal .icon-item:hover,
+  .dark-mode #telehealth-goal .icon-item.active {
+    background-color: #333333;
+  }
+  
+  /* Trending Products */
+  .dark-mode #trending-products .product-img-container {
+    background: var(--dark-bg);
+  }
+  .dark-mode #trending-products .product-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .dark-mode #trending-products .product-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+  }
+  
+  /* Recent Projects */
+  .dark-mode #recent-projects .project-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+  }
+  .dark-mode #recent-projects .project-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* =============================================================================
+     CONTACT & APPOINTMENT FORM
+     ============================================================================= */
+  .dark-mode #contact {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+  }
+  .dark-mode .appointment-form {
+    background: var(--dark-card-bg);
+    border: 1px solid #333333;
+    color: var(--dark-text);
+  }
+  .dark-mode .floating-label input {
+    background: var(--dark-input-bg);
+    border: 1px solid var(--dark-input-border);
+    color: var(--dark-text);
+  }
+  .dark-mode .floating-label label {
+    color: var(--dark-text);
+  }
+  .dark-mode .btn-appointment {
+    background: var(--dark-primary);
+    color: var(--dark-bg);
+    transition: 0.3s ease-in-out;
+  }
+  .dark-mode .btn-appointment:hover {
+    background: var(--dark-primary-hover);
+    color: var(--dark-text);
+  }
+  
+  /* =============================================================================
+     FOOTER & LIVE CHAT
+     ============================================================================= */
+  .dark-mode .footer {
+    background: var(--dark-footer-bg);
+    color: var(--dark-text);
+    border-top: 1px solid #333333;
+  }
+  .dark-mode .footer h5 {
+    color: var(--dark-text-secondary);
+  }
+  .dark-mode .footer ul li a {
+    color: var(--dark-text);
+    transition: 0.3s;
+  }
+  .dark-mode .footer ul li a:hover {
+    color: var(--dark-text-secondary);
+  }
+  .dark-mode .social-icons a {
+    color: var(--dark-text);
+    transition: 0.3s;
+  }
+  .dark-mode .social-icons a:hover {
+    color: var(--dark-text-secondary);
+  }
+  
+  /* Live Chat Button */
+  .dark-mode .chat-btn {
+    background: var(--dark-primary);
+    color: var(--dark-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* =============================================================================
+     FORM ELEMENTS & SCROLLBAR
+     ============================================================================= */
+  .dark-mode input,
+  .dark-mode textarea,
+  .dark-mode select {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-input-border);
+    border-radius: 5px;
+    padding: 8px;
+  }
+  .dark-mode input:focus,
+  .dark-mode textarea:focus,
+  .dark-mode select:focus {
+    border-color: var(--dark-primary);
+    outline: none;
+  }
+  
+  /* Table Styling */
+  .dark-mode table {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+  }
+  .dark-mode thead {
+    background-color: var(--dark-primary);
+    color: var(--dark-bg);
+  }
+  .dark-mode tbody tr {
+    border-bottom: 1px solid var(--dark-input-border);
+  }
+  .dark-mode tbody tr:hover {
+    background-color: #292929;
+  }
+  
+  /* Custom Scrollbar */
+  .dark-mode ::-webkit-scrollbar {
+    width: 10px;
+  }
+  .dark-mode ::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+  }
+  .dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--dark-primary);
+    border-radius: 5px;
+  }
+  .dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-primary-hover);
+  }
+/* =============================================================================
+   DARK MODE VARIABLES
+   ============================================================================= */
+:root {
+  --dark-bg: #121212;
+  --dark-bg-secondary: #1e1e1e;
+  --dark-bg-tertiary: #222222;
+  --dark-text: #e0e0e0;
+  --dark-text-secondary: #bb86fc;
+  --dark-primary: #bb86fc;
+  --dark-primary-hover: #3700b3;
+  --dark-card-bg: #1e1e1e;
+  --dark-navbar-bg: rgba(18, 18, 18, 0.9);
+  --dark-footer-bg: rgba(18, 18, 18, 0.9);
+  --dark-input-bg: #222222;
+  --dark-input-border: #444444;
+  --dark-shadow: rgba(255, 255, 255, 0.1);
+}
+
+/* =============================================================================
+   DARK MODE GLOBAL STYLES
+   ============================================================================= */
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* =============================================================================
+   NAVBAR & HEADER
+   ============================================================================= */
+.dark-mode .navbar {
+  background: var(--dark-navbar-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+.dark-mode .navbar.scrolled {
+  background: var(--dark-navbar-bg);
+}
+
+
+/* =============================================================================
+   SEARCH BAR & CATEGORIES
+   ============================================================================= */
+.dark-mode .search-bar {
+  background: linear-gradient(90deg, #222222, #333333, #444444);
+  border-radius: 8px;
+}
+.dark-mode .search-bar input,
+.dark-mode .search-bar select,
+.dark-mode .search-bar button {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--dark-input-border);
+}
+.dark-mode .search-bar button:hover {
+  background-color: var(--dark-primary);
+  color: var(--dark-bg);
+}
+.dark-mode .category {
+  background-color: var(--dark-bg-tertiary);
+  color: var(--dark-text);
+  border: 1px solid #333333;
+}
+
+/* =============================================================================
+   CARDS & SECTIONS
+   ============================================================================= */
+
+/* Consultation Card */
+.dark-mode .consultation-card {
+  background: var(--dark-card-bg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+  color: var(--dark-text);
+}
+.dark-mode .consultation-card img {
+  opacity: 0.9;
+}
+
+/* Services Section */
+.dark-mode #services {
+  background: var(--dark-bg);
+}
+.dark-mode .service-card {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-mode .service-card:hover {
+  box-shadow: 0 10px 20px var(--dark-shadow);
+}
+.dark-mode .service-img {
+  filter: brightness(0.8);
+}
+.dark-mode .card-body {
+  background: var(--dark-bg-secondary);
+}
+
+/* Medical Departments */
+.dark-mode #medical-departments {
+  background-color: var(--dark-bg);
+  border: 1px solid #333333;
+}
+.dark-mode .dept-card {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+}
+.dark-mode .dept-card img {
+  filter: brightness(0.8);
+}
+
+/* Gallery Section */
+.dark-mode #our-gallery {
+  background-color: var(--dark-bg);
+  border: 1px solid #333333;
+}
+.dark-mode #our-gallery h2 {
+  color: var(--dark-text-secondary);
+}
+.dark-mode .gallery-img {
+  filter: brightness(0.9);
+}
+
+/* Symptom Checker & Glass Card */
+.dark-mode #symptom-checker {
+  background-color: var(--dark-bg-secondary);
+  border: 1px solid #333333;
+}
+.dark-mode .glass-card {
+  background: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+/* Telehealth Assessment */
+.dark-mode #telehealth-assessment {
+  background: linear-gradient(135deg, var(--dark-bg-secondary), var(--dark-bg-tertiary));
+  color: var(--dark-text);
+}
+.dark-mode .quiz-header,
+.dark-mode .pricing-header {
+  background: var(--dark-bg-tertiary);
+  color: var(--dark-text-secondary);
+}
+.dark-mode .quiz-section,
+.dark-mode .pricing-section {
+  color: var(--dark-text);
+}
+
+/* Virtual Tour */
+.dark-mode #virtual-tour {
+  background-color: var(--dark-bg);
+  border: 1px solid #333333;
+}
+.dark-mode .virtual-tour-wrapper {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Specialised Doctors */
+.dark-mode #specialised-doctors {
+  background: var(--dark-bg);
+}
+.dark-mode .doctor-card {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.dark-mode .doctor-card:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+.dark-mode .doctor-card .card-title,
+.dark-mode .doctor-card .card-text {
+  color: var(--dark-text-secondary);
+}
+
+/* Modal Windows */
+.dark-mode .modal-header {
+  background: var(--dark-navbar-bg);
+  color: var(--dark-text);
+}
+.dark-mode .modal-footer {
+  background: var(--dark-bg-tertiary);
+}
+
+/* Telehealth Goal */
+.dark-mode #telehealth-goal {
+  background-color: var(--dark-bg);
+  border: 1px solid #333333;
+}
+.dark-mode #telehealth-goal .icon-item {
+  background: var(--dark-bg-tertiary);
+  color: var(--dark-text);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.dark-mode #telehealth-goal .icon-item:hover,
+.dark-mode #telehealth-goal .icon-item.active {
+  background-color: #333333;
+}
+
+/* Trending Products */
+.dark-mode #trending-products .product-img-container {
+  background: var(--dark-bg);
+}
+.dark-mode #trending-products .product-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+.dark-mode #trending-products .product-card {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+}
+
+/* Recent Projects */
+.dark-mode #recent-projects .project-card {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+}
+.dark-mode #recent-projects .project-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* =============================================================================
+   CONTACT & APPOINTMENT FORM
+   ============================================================================= */
+.dark-mode #contact {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+.dark-mode .appointment-form {
+  background: var(--dark-card-bg);
+  border: 1px solid #333333;
+  color: var(--dark-text);
+}
+.dark-mode .floating-label input {
+  background: var(--dark-input-bg);
+  border: 1px solid var(--dark-input-border);
+  color: var(--dark-text);
+}
+.dark-mode .floating-label label {
+  color: var(--dark-text);
+}
+.dark-mode .btn-appointment {
+  background: var(--dark-primary);
+  color: var(--dark-bg);
+  transition: 0.3s ease-in-out;
+}
+.dark-mode .btn-appointment:hover {
+  background: var(--dark-primary-hover);
+  color: var(--dark-text);
+}
+
+/* =============================================================================
+   FOOTER & LIVE CHAT
+   ============================================================================= */
+.dark-mode .footer {
+  background: var(--dark-footer-bg);
+  color: var(--dark-text);
+  border-top: 1px solid #333333;
+}
+.dark-mode .footer h5 {
+  color: var(--dark-text-secondary);
+}
+.dark-mode .footer ul li a {
+  color: var(--dark-text);
+  transition: 0.3s;
+}
+.dark-mode .footer ul li a:hover {
+  color: var(--dark-text-secondary);
+}
+.dark-mode .social-icons a {
+  color: var(--dark-text);
+  transition: 0.3s;
+}
+.dark-mode .social-icons a:hover {
+  color: var(--dark-text-secondary);
+}
+
+/* Live Chat Button */
+.dark-mode .chat-btn {
+  background: var(--dark-primary);
+  color: var(--dark-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* =============================================================================
+   FORM ELEMENTS & SCROLLBAR
+   ============================================================================= */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--dark-input-border);
+  border-radius: 5px;
+  padding: 8px;
+}
+.dark-mode input:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: var(--dark-primary);
+  outline: none;
+}
+
+/* Table Styling */
+.dark-mode table {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+.dark-mode thead {
+  background-color: var(--dark-primary);
+  color: var(--dark-bg);
+}
+.dark-mode tbody tr {
+  border-bottom: 1px solid var(--dark-input-border);
+}
+.dark-mode tbody tr:hover {
+  background-color: #292929;
+}
+
+/* Custom Scrollbar */
+.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+}
+.dark-mode ::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--dark-primary);
+  border-radius: 5px;
+}
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-primary-hover);
+}
+  
