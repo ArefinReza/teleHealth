@@ -208,7 +208,7 @@ body {
 }
 .dept-card img {
   width: 100%;
-  height: 180px;
+  height: 300px;
   object-fit: cover;
 }
 .dept-card .card-body {
@@ -240,7 +240,7 @@ body {
 
 /* Our Gallery Section */
 #our-gallery {
-  margin: 45px 0;
+  margin: 50px 0;
   position: relative;
   overflow: hidden;
   background-color: var(--light-blue);
@@ -248,20 +248,51 @@ body {
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 80px;
+  padding: 60px;
 }
+
 #our-gallery h2 {
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
   color: var(--accent-color);
 }
+
 .gallery-container {
   position: relative;
   width: 100%;
-  min-height: 400px;
+  min-height: 450px;
   overflow: hidden;
 }
+
+/* New Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  gap: 10px;
+  position: relative;
+}
+
+/* Different Image Sizes for a Natural Look */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, opacity 1s ease-in-out;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Make one image span two columns */
+.gallery-img.wide {
+  grid-column: span 2;
+}
+
+/* Animation for Changing Sets */
 .gallery-set {
   position: absolute;
   top: 0;
@@ -271,42 +302,30 @@ body {
   opacity: 0;
   z-index: 0;
 }
+
 .gallery-set.active {
   opacity: 1;
   z-index: 1;
 }
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--border-radius-default);
-}
-.p-2 {
-  padding: 0.5rem !important;
-}
-/* Mosaic column image heights */
-.col-md-6 .gallery-img {
-  height: 200px;
-}
-.col-md-12 .gallery-img {
-  height: 180px;
-}
-.gallery-img:hover {
-  transform: scale(1.03);
-  transition: transform var(--transition-speed) ease;
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 180px;
+  }
 }
 
-/* Responsive Adjustments for Gallery */
 @media (max-width: 768px) {
-  .col-md-6 .gallery-img,
-  .col-md-12 .gallery-img {
-    height: auto;
+  .gallery-grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: auto;
   }
-  #medical-departments,
-  #our-gallery {
-    padding: 20px;
+  .gallery-img {
+      height: auto;
   }
 }
+
 
 /* =============================================================================
    SYMPTOM CHECKER & GLASSMORPHISM
@@ -512,7 +531,7 @@ h2 {
 }
 .doctor-card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 }
 .doctor-card .card-body {
