@@ -1,93 +1,82 @@
-// Dark Mode Toggle with Local Storage
-// Dark Mode Toggle
-document.getElementById("darkModeToggle").addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-  const icon = this.querySelector("i");
-  if (document.body.classList.contains("dark-mode")) {
-    icon.classList.replace("bi-moon", "bi-sun");
-  } else {
-    icon.classList.replace("bi-sun", "bi-moon");
-  }
-});
-  
-  if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-  }
-  
-  // Appointment Form Submission
-  document
-    .getElementById("appointmentForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const appointmentDate = document.getElementById("appointmentDate").value;
-  
-      if (name === "" || email === "" || appointmentDate === "") {
-        alert("Please fill in all fields.");
-        return;
-      }
-  
-      alert("Appointment booked successfully!");
-      this.reset();
-    });
-  
-  // Live Chat Button Click Event
-  document.getElementById("chatbotBtn").addEventListener("click", function () {
-    alert("Live chat coming soon!");
-  });
-  
-  // Symptom Checker Form Submission
-  document.getElementById("symptomForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const symptoms = [];
-    if (document.getElementById("symptomFever").checked) symptoms.push("Fever");
-    if (document.getElementById("symptomCough").checked) symptoms.push("Cough");
-    if (document.getElementById("symptomHeadache").checked) symptoms.push("Headache");
-    if (document.getElementById("symptomFatigue").checked) symptoms.push("Fatigue");
-    if (document.getElementById("symptomSoreThroat").checked) symptoms.push("Sore Throat");
-    
-    let advice = "";
-    if (symptoms.length === 0) {
-      advice = "<p>Please select at least one symptom.</p>";
-    } else {
-      if (symptoms.includes("Fever") && symptoms.includes("Cough")) {
-        advice = "<p><strong>Advice:</strong> Your symptoms indicate a possibility of flu or COVID-19. We recommend you get tested and consult with a doctor as soon as possible.</p>";
-      } else if (symptoms.includes("Headache") && symptoms.includes("Fatigue")) {
-        advice = "<p><strong>Advice:</strong> These symptoms might be due to dehydration or stress. Consider taking rest, hydrating, and if symptoms persist, consult a physician.</p>";
-      } else {
-        advice = "<p><strong>Advice:</strong> Based on your selected symptoms (" + symptoms.join(", ") + "), please monitor your condition closely and consider booking an appointment for further evaluation.</p>";
-      }
-    }
-    document.getElementById("symptomResult").innerHTML = advice;
-  });
+(() => {
+  'use strict';
 
-// doctor section 
-  document.addEventListener('DOMContentLoaded', function(){
+  /** 
+   * Initialize Chatbot Button
+   */
+  const initChatbot = () => {
+    const chatbotBtn = document.getElementById("chatbotBtn");
+    if (chatbotBtn) {
+      chatbotBtn.addEventListener("click", () => {
+        alert("Live chat coming soon!");
+      });
+    }
+  };
+
+  /**
+   * Initialize Symptom Form Submission
+   */
+  const initSymptomForm = () => {
+    const symptomForm = document.getElementById("symptomForm");
+    if (!symptomForm) return;
+
+    symptomForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const symptoms = [];
+      if (document.getElementById("symptomFever")?.checked) symptoms.push("Fever");
+      if (document.getElementById("symptomCough")?.checked) symptoms.push("Cough");
+      if (document.getElementById("symptomHeadache")?.checked) symptoms.push("Headache");
+      if (document.getElementById("symptomFatigue")?.checked) symptoms.push("Fatigue");
+      if (document.getElementById("symptomSoreThroat")?.checked) symptoms.push("Sore Throat");
+
+      let advice = "";
+      if (symptoms.length === 0) {
+        advice = "<p>Please select at least one symptom.</p>";
+      } else if (symptoms.includes("Fever") && symptoms.includes("Cough")) {
+        advice = `<p><strong>Advice:</strong> Your symptoms indicate a possibility of flu or COVID-19. We recommend you get tested and consult with a doctor as soon as possible.</p>`;
+      } else if (symptoms.includes("Headache") && symptoms.includes("Fatigue")) {
+        advice = `<p><strong>Advice:</strong> These symptoms might be due to dehydration or stress. Consider taking rest, hydrating, and if symptoms persist, consult a physician.</p>`;
+      } else {
+        advice = `<p><strong>Advice:</strong> Based on your selected symptoms (${symptoms.join(", ")}), please monitor your condition closely and consider booking an appointment for further evaluation.</p>`;
+      }
+      const symptomResult = document.getElementById("symptomResult");
+      if (symptomResult) {
+        symptomResult.innerHTML = advice;
+      }
+    });
+  };
+
+  /**
+   * Initialize Doctor Section (Modal)
+   */
+  const initDoctorSection = () => {
     const doctorCards = document.querySelectorAll('.doctor-card');
     doctorCards.forEach(card => {
-      card.addEventListener('click', function(){
+      card.addEventListener('click', function () {
         const name = this.getAttribute('data-name');
         const speciality = this.getAttribute('data-speciality');
         const bio = this.getAttribute('data-bio');
         const image = this.getAttribute('data-image');
-        
+
         document.getElementById('modalDoctorName').textContent = name;
         document.getElementById('modalDoctorSpeciality').textContent = speciality;
         document.getElementById('modalDoctorBio').textContent = bio;
         document.getElementById('modalDoctorImage').setAttribute('src', image);
-        
-        // Show the modal using Bootstrap's modal API
-        var doctorModal = new bootstrap.Modal(document.getElementById('doctorModal'));
-        doctorModal.show();
+
+        // Show the modal using Bootstrap's Modal API
+        const doctorModalEl = document.getElementById('doctorModal');
+        if (doctorModalEl) {
+          const doctorModal = new bootstrap.Modal(doctorModalEl);
+          doctorModal.show();
+        }
       });
     });
-  });
+  };
 
-  // end doctor section 
-
-  // tele health goal section 
-  document.addEventListener('DOMContentLoaded', function() {
+  /**
+   * Initialize Telehealth Goal Section
+   */
+  const initTelehealthGoal = () => {
     const goals = {
       expert: {
         title: "Expert Care",
@@ -108,29 +97,31 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
     const goalDescription = document.getElementById('goalDescription');
 
     iconItems.forEach(item => {
-      item.addEventListener('click', function() {
+      item.addEventListener('click', () => {
         // Remove active class from all icons
         iconItems.forEach(i => i.classList.remove('active'));
-        // Add active class to the clicked icon
-        this.classList.add('active');
-        // Get the selected goal's key
-        const goalKey = this.getAttribute('data-goal');
+        // Set active class on the clicked icon
+        item.classList.add('active');
+        // Update the goal content
+        const goalKey = item.getAttribute('data-goal');
         const goalData = goals[goalKey];
-        // Update text accordingly
-        goalTitle.textContent = goalData.title;
-        goalDescription.textContent = goalData.description;
+        if (goalData && goalTitle && goalDescription) {
+          goalTitle.textContent = goalData.title;
+          goalDescription.textContent = goalData.description;
+        }
       });
     });
 
-    // Set the first icon as active by default
+    // Set the first icon active by default
     if (iconItems.length > 0) {
       iconItems[0].classList.add('active');
     }
-  });
-  // end tele health goal section 
+  };
 
-  // ----- Quiz Section -----
-  document.addEventListener('DOMContentLoaded', function () {
+  /**
+   * Initialize Quiz Section
+   */
+  const initQuizSection = () => {
     // Step 1: Appointment Urgency
     const urgencyRadios = document.getElementsByName('urgency');
     const nextStep1Btn = document.getElementById('nextStep1');
@@ -177,8 +168,11 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
       document.getElementById('quizSummary').style.display = 'block';
     });
 
-    document.getElementById('restartQuiz').addEventListener('click', () => {
-      document.getElementById('quizForm').reset();
+    // Restart Quiz
+    const restartQuizBtn = document.getElementById('restartQuiz');
+    restartQuizBtn.addEventListener('click', () => {
+      const quizForm = document.getElementById('quizForm');
+      if (quizForm) quizForm.reset();
       document.getElementById('quizStep1').style.display = 'block';
       document.getElementById('quizStep2').style.display = 'none';
       document.getElementById('quizStep3').style.display = 'none';
@@ -188,16 +182,19 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
       submitQuizBtn.disabled = true;
       document.getElementById('quizForm').style.display = 'block';
     });
-  });
+  };
 
-  // ----- Pricing Calculator with Chart.js -----
-  document.addEventListener('DOMContentLoaded', function () {
+  /**
+   * Initialize Pricing Calculator (with Chart.js)
+   */
+  const initPricingCalculator = () => {
     const testCheckboxes = document.querySelectorAll('.test-checkbox');
     const totalPriceEl = document.getElementById('totalPrice');
     const resetPricingBtn = document.getElementById('resetPricing');
 
-    // Initialize the pie chart
-    const ctx = document.getElementById('pricingChart').getContext('2d');
+    const ctx = document.getElementById('pricingChart')?.getContext('2d');
+    if (!ctx) return;
+
     const pricingChart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -210,14 +207,12 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
       options: {
         responsive: true,
         plugins: {
-          legend: {
-            position: 'bottom'
-          }
+          legend: { position: 'bottom' }
         }
       }
     });
 
-    function updatePricing() {
+    const updatePricing = () => {
       let total = 0;
       const labels = [];
       const data = [];
@@ -225,25 +220,96 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
         if (checkbox.checked) {
           const labelText = checkbox.nextElementSibling.innerText;
           labels.push(labelText);
-          const cost = parseInt(checkbox.value);
+          const cost = parseInt(checkbox.value, 10);
           data.push(cost);
           total += cost;
         }
       });
-      totalPriceEl.innerText = total;
+      if (totalPriceEl) totalPriceEl.innerText = total;
       pricingChart.data.labels = labels;
       pricingChart.data.datasets[0].data = data;
       pricingChart.update();
-    }
+    };
 
     testCheckboxes.forEach(checkbox => {
       checkbox.addEventListener('change', updatePricing);
     });
 
-    resetPricingBtn.addEventListener('click', () => {
-      testCheckboxes.forEach(checkbox => {
-        checkbox.checked = false;
+    if (resetPricingBtn) {
+      resetPricingBtn.addEventListener('click', () => {
+        testCheckboxes.forEach(checkbox => {
+          checkbox.checked = false;
+        });
+        updatePricing();
       });
-      updatePricing();
+    }
+  };
+
+  /**
+   * Initialize Gallery Auto-Slide
+   */
+  const initGallerySlider = () => {
+    const sets = document.querySelectorAll('.gallery-set');
+    if (sets.length === 0) return;
+    let currentIndex = 0;
+    sets[currentIndex].classList.add('active');
+
+    setInterval(() => {
+      sets[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % sets.length;
+      sets[currentIndex].classList.add('active');
+    }, 4000);
+  };
+
+  /**
+   * Initialize Navbar Scroll Listener (for toggling 'scrolled' class)
+   */
+  const initNavbarScrollListener = () => {
+    window.addEventListener("scroll", () => {
+      const navbar = document.querySelector(".navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
     });
+  };
+
+  /**
+   * Initialize Dark Mode Toggle and preserve user preference
+   */
+  const initDarkModeToggle = () => {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for stored preference
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    });
+  };
+
+  // Initialize all components once DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    initChatbot();
+    initSymptomForm();
+    initDoctorSection();
+    initTelehealthGoal();
+    initQuizSection();
+    initPricingCalculator();
+    initGallerySlider();
+    initNavbarScrollListener();
+    initDarkModeToggle();
   });
+})();
